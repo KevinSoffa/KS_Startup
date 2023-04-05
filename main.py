@@ -1,5 +1,6 @@
 
 from fastapi.staticfiles import StaticFiles
+from views.admin import admin_view
 from fastapi import FastAPI
 from views import home_view
 
@@ -7,6 +8,7 @@ from views import home_view
 app = FastAPI(docs_url=None, redoc_url=None)
 
 app.include_router(home_view.router)
+app.include_router(admin_view.router)
 app.mount('/static', StaticFiles(directory='static'), name='static')
 app.mount('/media', StaticFiles(directory='media'), name='media')
 
