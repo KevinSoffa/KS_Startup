@@ -39,7 +39,7 @@ class MembroController(BaseController):
 
         # Cria a sessão e insere no banco de dados
         async with get_session() as session:
-            session.ad(membro)
+            session.add(membro)
             await session.commit()
     
 
